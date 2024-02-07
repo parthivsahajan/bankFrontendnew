@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container-fluid mt-2">
+
+    <h2>Account Opening Form  &nbsp;<button class="btn btn-primary " routerLink="/"><i class="fa-solid fa-house"></i>&nbsp; Back </button></h2>
+    <p style="text-align: justify;">This is a dummmy content: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quis, fugit, rem, tenetur laboriosam veritatis molestias dignissimos rerum adipisci corporis minima ipsa suscipit delectus facere. Explicabo ad accusantium dignissimos officiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quis, fugit, rem, tenetur laboriosam veritatis molestias dignissimos rerum adipisci corporis minima ipsa suscipit delectus facere. Explicabo ad accusantium dignissimos officiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quis, fugit, rem, tenetur laboriosam veritatis molestias dignissimos rerum adipisci corporis minima ipsa suscipit delectus facere. Explicabo ad accusantium dignissimos officiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut quis, fugit, rem, tenetur laboriosam veritatis molestias dignissimos rerum adipisci corporis minima ipsa suscipit delectus facere. Explicabo ad accusantium dignissimos officiis.Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+
+    <div class="row mt-3 mb-3">
+        <div class="col-4">
+           <img width="400px" src="https://img.freepik.com/premium-vector/job-interview-illustration_173125-163.jpg" alt="no_image">
+        </div>
+
+        <div class="col-8">
+            <form (ngSubmit)="register()" [formGroup]="registerForm" class="border p-5 mb-2">
+                <div class="form-floating mb-2">
+                    <input name="uname" formControlName="uname" type="text" class="form-control" id="floatingInput" placeholder="User Name">
+                    <label for="floatingInput"><i class="fa-solid fa-user"></i>&nbsp; User Name</label>
+                  </div>
+                  <div *ngIf="registerForm.get('uname')?.errors && registerForm.get('uname')?.touched" class="text-danger mb-2">Invalid User Name</div>
+
+                  <div class="form-floating mb-2">
+                    <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingInput" placeholder="Account Number">
+                    <label for="floatingInput"><i class="fa-solid fa-address-card"></i>&nbsp; Account Number</label>
+                  </div>
+                  <div *ngIf="registerForm.get('acno')?.errors && registerForm.get('acno')?.touched" class="text-danger mb-2">Invalid Accoun Number</div>
+
+                  <div class="form-floating">
+                    <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword"><i class="fa-solid fa-lock"></i>&nbsp; Password</label>
+                  </div>
+                  <div *ngIf="registerForm.get('pswd')?.errors && registerForm.get('pswd')?.touched" class="text-danger mb-2">Incorrect Password</div>
+                <div class="mt-4">
+                    <button  type="submit" class="btn btn-primary">
+                        Register
+                    </button>&nbsp;
+                    <span class="register ">
+                        Already A User? Click Here to <a  routerLink="/" style="text-decoration: none;">Login</a>
+                    </span>
+                </div>
+            </form>             
+
+        </div>
+    </div>
+</div>

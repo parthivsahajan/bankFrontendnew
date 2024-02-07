@@ -1,0 +1,60 @@
+<!-- nav-bar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand text-primary" routerLink="/dashboard">
+            <i class="fa-solid fa-building-columns"></i>&nbsp;
+            Online Banking App
+        </a>
+    </div>
+</nav>
+
+<!-- trasaction body -->
+
+<div class="container-fluid mt-2">
+    <h1 class="text-primary">Transaction</h1>
+    <p class="text-align:justify">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam harum a, vel voluptas aspernatur id quam molestiae numquam delectus enim beatae ut illum facilis error ullam veritatis corporis magnam! Inventore?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, quibusdam est rem molestias numquam sequi optio aperiam consequatur distinctio, pariatur eum fugit! Reprehenderit vitae, officiis provident ut repellat nulla deserunt!Lore Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium excepturi, unde optio reiciendis magnam sit incidunt, inventore vero officiis cum molestiae eos quo voluptatibus distinctio quisquam, hic veritatis iure sint?
+    </p>
+
+    <div class="cotainer border p-3 m-5">
+        <!----row for search n export ---->
+        <div class="row">
+            <div class="col-lg-4">
+                <h3 class="text-success">Transaction History</h3>
+            </div>
+            <div class="col-lg-4">
+                <label for="search">Srearch By:</label>&nbsp;
+                <input (keyup)="search($event)" id="search" type="text" placeholder="Transaction Type">
+            </div>
+            <div class="col-lg-4">
+                <input (click)="generatePDF()" value="Export" type="text" class="btn btn-success">
+            </div>
+        </div>
+
+        <!----------- table ------------>
+        <table class="table border mt-3 text-center">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>TRANSACTION TYPE</th>
+                    <th>FROM ACCOUNT</th>
+                    <th>TO ACCOUNT</th>
+                    <th>AMOUNT</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let transaction of allTransactions | filter : searchKey : 'type'; let i=index">
+                    <th>{{i+1}}</th>
+                    <th>{{transaction.type}}</th>
+                    <th>{{transaction.fromAcno}}</th>
+                    <th>{{transaction.toAcno}}</th>
+                    <th>{{transaction.amount}}</th>
+                </tr>
+
+            </tbody>
+            
+        </table>
+
+    </div>
+</div>

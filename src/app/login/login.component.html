@@ -1,0 +1,42 @@
+    <!---- Headre ----->
+    <app-header></app-header>
+
+    <!---- Login page ----->
+    <div class="row ">
+        <div class="col-7">
+            <img class="image" src="https://img.freepik.com/free-vector/regular-money-transfer-cash-transaction-planned-payment-online-banking-remittance-personal-account-management-money-addresser-cartoon-character_335657-2981.jpg?w=2000" alt="no_image">
+        </div>
+
+        
+        <div class="col-5 mt-4">
+            <form (ngSubmit)="login()" [formGroup]="loginForm" class="container border p-5 mt-4 me-3">
+                <div class="form-floating mb-2">
+                    <input name="acno" formControlName="acno" type="text" class="form-control" id="floatingInput" placeholder="Account Number">
+                    <label for="floatingInput">Account Number </label>
+                  </div>
+                 <!-------invalid acno-------->
+                  <div *ngIf="loginForm.get('acno')?.errors && loginForm.get('acno')?.touched" class="text-danger mb-2">Invalid Accoun Number</div>
+                  
+                  <div class="form-floating">
+                    <input name="pswd" formControlName="pswd" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                  </div>
+                 <!-------invalid pswd-------->
+                  <div *ngIf="loginForm.get('pswd')?.errors && loginForm.get('pswd')?.touched" class="text-danger mb-2">Incorrect Password</div>
+
+                 <!-------errorMsg-------->
+                <div class="text-danger">{{erroeMsg}}</div>
+                <div class="mt-4">
+                    <button  type="submit" class="btn btn-primary">
+                        Login &nbsp;
+                        <span *ngIf="successMsg" div class="spinner-border text-light" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                          </span>
+                    </button>&nbsp;
+                    <span class="register ">
+                        New User? Click here to <a routerLink="/register" style="text-decoration: none;" >Register</a>
+                    </span>
+                </div>
+            </form> 
+        </div>
+    </div>

@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Source+Serif+Pro&display=swap');
+
+
+body{
+    font-family: 'Source Serif Pro', serif;
+    overflow-x: hidden;
+}
